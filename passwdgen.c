@@ -209,11 +209,11 @@ void gerarSenha(int len)
 	if ( validarComprimentoSenha(len ) )
 		exit(1);
 
-	for (i = 0; i < len; i++) {
+	for (i = 0; i < len-1; i++) {
 		palavra[i] = alfabeto[rand() % 64]; /* 64 é o tamanho do alfabeto */
 	}
 
-	palavra[i] = '\0'; /* terminador de string */
+	palavra[len-1] = '\0'; /* terminador de string */
 	printf("\t%s\n", palavra);
 
 	return;
