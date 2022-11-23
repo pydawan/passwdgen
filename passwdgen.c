@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <time.h>
 
 /*
 *
@@ -202,18 +204,18 @@ void gerarSenha(int len)
 		'u', 'v', 'w', 'x', 'y', 'z', '*', '#'
 	};
 
-	char palavra[len];
+	char palavra[len + 1];
 
 	/*    srand( time( NULL ) ); Definir a semente aqui faz com que a senha se repita */
 
 	if ( validarComprimentoSenha(len ) )
 		exit(1);
 
-	for (i = 0; i < len-1; i++) {
+	for (i = 0; i < len; i++) {
 		palavra[i] = alfabeto[rand() % 64]; /* 64 é o tamanho do alfabeto */
 	}
 
-	palavra[len-1] = '\0'; /* terminador de string */
+	palavra[len] = '\0'; /* terminador de string */
 	printf("\t%s\n", palavra);
 
 	return;
